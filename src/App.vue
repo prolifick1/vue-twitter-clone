@@ -1,27 +1,30 @@
 <template>
   <div id="app"></div>
-  @{{user.username}}
-  <HelloWorld msg="Welcome to Twotter"/>
+  @{{ user.username }} - {{ fullName }}
 </template>
 
 <script>
-
 export default {
-  name: 'App',
+  name: "App",
   data() {
     return {
       followers: 0,
-      user : {
-        id: 1, 
-        username: '_VinceWinkelstein',
-        firstname: 'vincent',
-        lastname: 'winkelstein',
-        email: 'vince@home.com',
-        isAdmin: true
-      }
-    }
-  }
-}
+      user: {
+        id: 1,
+        username: "_VinceWinkelstein",
+        firstname: "vincent",
+        lastname: "winkelstein",
+        email: "vince@home.com",
+        isAdmin: true,
+      },
+    };
+  },
+  computed: {
+    fullName() {
+      return(`${this.user.firstname} ${this.user.lastname}`);
+    },
+  },
+};
 </script>
 
 <style>
