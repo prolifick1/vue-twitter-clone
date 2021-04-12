@@ -1,6 +1,9 @@
 <template>
-  <div id="app"></div>
-  @{{ user.username }} - {{ fullName }}
+  <div id="app">
+    @{{ user.username }} - {{ fullName }} <strong>Followers: </strong>
+    {{ followers }}
+    <button @click="followUser">follow</button>
+  </div>
 </template>
 
 <script>
@@ -21,7 +24,12 @@ export default {
   },
   computed: {
     fullName() {
-      return(`${this.user.firstname} ${this.user.lastname}`);
+      return `${this.user.firstname} ${this.user.lastname}`;
+    },
+  },
+  methods: {
+    followUser() {
+      this.followers++;
     },
   },
 };
@@ -34,6 +42,8 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
 }
 </style>
